@@ -7,7 +7,7 @@ module.exports = {
         "custom-green": "#526F3C",
       },
       fontFamily: {
-        italiana: ["Italiana", "serif"],
+        montserrat: ["Montserrat", "Sans-serif"],
       },
     },
   },

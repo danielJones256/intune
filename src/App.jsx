@@ -7,7 +7,7 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Home />}></Route>
-      <Route path="/search" element={<Search />}></Route>
+      <Route path="/callback" element={<Search />}></Route>
     </Routes>
   );
 }
