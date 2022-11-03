@@ -17,9 +17,7 @@ const Home = () => {
     <>
       <div className="flex flex-col items-center justify-center h-screen">
         <img src={logo} />
-        <p className="font-montserrat text-2xl m-5">
-          Scroll down to get started...
-        </p>
+        <p className="font-montserrat text-2xl m-5">Scroll down...</p>
       </div>
       <a
         href="https://developer.spotify.com/documentation/web-api/"
