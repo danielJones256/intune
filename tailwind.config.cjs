@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "custom-green": "#526F3C",
+        "custom-cream": "#d1c8c1",
       },
       fontFamily: {
         montserrat: ["Montserrat", "Sans-serif"],

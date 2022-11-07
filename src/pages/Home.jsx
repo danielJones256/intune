@@ -13,6 +13,8 @@ const SPACE_DELIMITER = "%20";
 const SCOPES_URL = SCOPES.join(SPACE_DELIMITER);
 
 const Home = () => {
+  document.body.style.backgroundColor = "#d1c8c1";
+
   return (
     <>
       <div className="flex flex-col items-center justify-center h-screen">
@@ -48,7 +50,7 @@ const Home = () => {
       <div className="flex flex-col items-center justify-center m-32">
         <a
           href={`${SPOTIFY_AUTHORISE_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scopes=${SCOPES_URL}`}
-          className="bg-transparent text-black py-3 px-12 font-montserrat text-2xl transform transition duration-500 hover:scale-110 border-2 border-black"
+          className="bg-transparent text-black py-3 px-12 font-montserrat text-2xl transform transition duration-500 hover:scale-110 border-2 border-black shadow-lg"
         >
           CONNECT TO SPOTIFY
         </a>
