@@ -8,7 +8,12 @@ const REDIRECT_URI = "http://localhost:5173/callback";
 const SPOTIFY_AUTHORISE_ENDPOINT = "https://accounts.spotify.com/authorize";
 const RESPONSE_TYPE = "token";
 
-const SCOPES = ["playlist-modify-public", "playlist-modify-private"];
+const SCOPES = [
+  "user-read-private",
+  "user-read-email",
+  "playlist-modify-public",
+  "playlist-modify-private",
+];
 const SPACE_DELIMITER = "%20";
 const SCOPES_URL = SCOPES.join(SPACE_DELIMITER);
 
@@ -44,12 +49,12 @@ const Home = () => {
         <br />
         <br />
         <p className="font-montserrat text-3xl w-96 tracking-wider">
-          Login to your Spotify to get you started...
+          Login to your Spotify to get started...
         </p>
       </div>
       <div className="flex flex-col items-center justify-center m-32">
         <a
-          href={`${SPOTIFY_AUTHORISE_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scopes=${SCOPES_URL}`}
+          href={`${SPOTIFY_AUTHORISE_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=${SCOPES_URL}`}
           className="bg-transparent text-black py-3 px-12 font-montserrat text-2xl transform transition duration-500 hover:scale-110 border-2 border-black shadow-lg"
         >
           CONNECT TO SPOTIFY

@@ -8,11 +8,35 @@ const Songcards = ({
   artists,
   images,
   setSelectedSongId,
+  authToken,
   setArtistIds,
+  currentUserId,
+  setPlaylistId,
 }) => {
+  const makePlaylist = () => {
+    if (currentUserId) {
+      fetch(`https://api.spotify.com/v1/users/${currentUserId}/playlists`, {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${authToken}`,
+        },
+        body: JSON.stringify({
+          name: "Intune playlist",
+          description: "New playlist description",
+          public: false,
+        }),
+      })
+        .then((response) => response.json())
+        .then((data) => setPlaylistId(data.id));
+    }
+  };
+
   const handleClick = () => {
     setSelectedSongId(id);
     setArtistIds(artists.map((artist) => artist.id));
+    makePlaylist();
   };
 
   return (
