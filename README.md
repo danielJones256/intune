@@ -6,7 +6,7 @@ intune takes a song from the user and creates a playlist of similar songs for yo
 
 #Demo
 
-[intune.netlify.app]
+https://intune.netlify.app/
 
 # Technologies
 
