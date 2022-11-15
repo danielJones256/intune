@@ -38,4 +38,4 @@ You will also need your own project on the Spotify Developer Dashboard.
 
 #Refs
 
-Spotify Web API docs: [https://developer.spotify.com/documentation/web-api/]
+Spotify Web API docs: https://developer.spotify.com/documentation/web-api/
