@@ -21,7 +21,6 @@ const Search = () => {
   const [artistIds, setArtistIds] = useState([]);
   const [artistData, setArtistData] = useState([]);
   const [genres, setGenres] = useState([]);
-  // eslint-disable-next-line no-unused-vars
   const [recommendedSongs, setRecommendedSongs] = useState([]);
   const [currentUserId, setCurrentUserId] = useState("");
   const [playlistId, setPlaylistId] = useState("");
@@ -42,7 +41,17 @@ const Search = () => {
     setQuery(e.target.value);
   };
 
+  const resetStates = () => {
+    setSelectedSongId("");
+    setArtistIds([]);
+    setArtistData([]);
+    setGenres([]);
+    setRecommendedSongs([]);
+    setPlaylistId("");
+  };
+
   useEffect(() => {
+    resetStates();
     if (query) {
       fetch(
         `https://api.spotify.com/v1/search?q=${query}&type=track&limit=20`,
@@ -86,7 +95,9 @@ const Search = () => {
   useEffect(() => {
     if (selectedSongId && artistData && genres) {
       fetch(
-        `https://api.spotify.com/v1/recommendations?limit=20&market=US&seed_artists=${artistIds.join()}&seed_genres=${genres.join()}&seed_tracks=${selectedSongId}`,
+        `https://api.spotify.com/v1/recommendations?limit=20&market=US&seed_artists=${artistIds.join(
+          "%2C"
+        )}&seed_genres=${genres.join("%2C")}&seed_tracks=${selectedSongId}`,
         {
           headers: {
             Accept: "application/json",
@@ -96,7 +107,11 @@ const Search = () => {
         }
       )
         .then((response) => response.json())
-        .then((data) => setRecommendedSongs(data.tracks));
+        .then((data) =>
+          setRecommendedSongs(
+            data.tracks.map((song) => `spotify%3Atrack%3A${song.id}`)
+          )
+        );
     }
   }, [selectedSongId]);
 
@@ -112,19 +127,15 @@ const Search = () => {
       .then((data) => setCurrentUserId(data.id));
   }, []);
 
-  const recommendedTracks = recommendedSongs.map(
-    (song) => `spotify%3Atrack%3A${song.id}`
-  );
-
   useEffect(() => {
-    if (playlistId && selectedSongId) {
+    if (playlistId && selectedSongId && recommendedSongs.length) {
       addSong();
     }
-  }, [playlistId]);
+  }, [recommendedSongs, playlistId, selectedSongId]);
 
   const addSong = () => {
     fetch(
-      `https://api.spotify.com/v1/playlists/${playlistId}/tracks?position=0&uris=${recommendedTracks.join()}`,
+      `https://api.spotify.com/v1/playlists/${playlistId}/tracks?position=0&uris=${recommendedSongs.join()}`,
       {
         method: "POST",
         headers: {
@@ -133,6 +144,8 @@ const Search = () => {
           Authorization: `Bearer ${authToken}`,
         },
       }
+    ).then(() =>
+      window.open(`https://open.spotify.com/playlist/${playlistId}`, "_blank")
     );
   };
 
@@ -161,11 +174,9 @@ const Search = () => {
                   artists={songs.artists}
                   images={songs.album.images[0]}
                   authToken={authToken}
-                  selectedSongId={selectedSongId}
                   setSelectedSongId={setSelectedSongId}
                   setArtistIds={setArtistIds}
                   currentUserId={currentUserId}
-                  playlistId={playlistId}
                   setPlaylistId={setPlaylistId}
                 />
               </div>

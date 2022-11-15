@@ -23,7 +23,7 @@ const Songcards = ({
           Authorization: `Bearer ${authToken}`,
         },
         body: JSON.stringify({
-          name: "Intune playlist",
+          name: `${name} - Playlist`,
           description: "New playlist description",
           public: false,
         }),
