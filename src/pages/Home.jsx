@@ -4,7 +4,7 @@ import githubLogo from "../../logo/GitHub-Mark-64px.png";
 import spotify from "../../logo/spotify.svg";
 
 const CLIENT_ID = "2f3a183224a9480aaf826f7e3551f9c9";
-const REDIRECT_URI = "https://intune.netlify.app/callback";
+const REDIRECT_URI = "http://localhost:5173/callback";
 const SPOTIFY_AUTHORISE_ENDPOINT = "https://accounts.spotify.com/authorize";
 const RESPONSE_TYPE = "token";
 
