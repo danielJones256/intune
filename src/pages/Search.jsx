@@ -116,15 +116,17 @@ const Search = () => {
   }, [selectedSongId]);
 
   useEffect(() => {
-    fetch(`https://api.spotify.com/v1/me`, {
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${authToken}`,
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => setCurrentUserId(data.id));
+    if (authToken) {
+      fetch(`https://api.spotify.com/v1/me`, {
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${authToken}`,
+        },
+      })
+        .then((response) => response.json())
+        .then((data) => setCurrentUserId(data.id));
+    }
   }, []);
 
   useEffect(() => {
