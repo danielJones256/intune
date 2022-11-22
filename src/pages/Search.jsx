@@ -127,7 +127,7 @@ const Search = () => {
         .then((response) => response.json())
         .then((data) => setCurrentUserId(data.id));
     }
-  }, []);
+  }, [authToken]);
 
   useEffect(() => {
     if (playlistId && selectedSongId && recommendedSongs.length) {
