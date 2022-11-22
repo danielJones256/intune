@@ -4,7 +4,7 @@ import githubLogo from "../../logo/GitHub-Mark-64px.png";
 import spotify from "../../logo/spotify.svg";
 
 const CLIENT_ID = "2f3a183224a9480aaf826f7e3551f9c9";
-const REDIRECT_URI = "https://intune.netlify.app/callback"; //https://intune.netlify.app/callback
+const REDIRECT_URI = "https://intune.netlify.app/callback";
 const SPOTIFY_AUTHORISE_ENDPOINT = "https://accounts.spotify.com/authorize";
 const RESPONSE_TYPE = "token";
 
@@ -58,7 +58,7 @@ const Home = () => {
           Login to your Spotify to get started...
         </p>
       </div>
-      <div className="flex flex-col items-center justify-center m-32">
+      <div className="flex flex-col items-center justify-center mt-24 mb-32">
         <a
           href={`${SPOTIFY_AUTHORISE_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=${SCOPES_URL}`}
           className="bg-transparent text-black py-3 px-12 font-montserrat text-2xl transform transition duration-500 hover:scale-110 border-2 border-black shadow-lg"
