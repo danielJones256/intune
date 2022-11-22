@@ -49,6 +49,12 @@ const Home = () => {
         <br />
         <br />
         <p className="font-montserrat text-3xl w-96 tracking-wider">
+          Search and select your favourite song on the next page to create a
+          playlist.
+        </p>
+        <br />
+        <br />
+        <p className="font-montserrat text-3xl w-96 tracking-wider">
           Login to your Spotify to get started...
         </p>
       </div>
