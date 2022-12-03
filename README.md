@@ -24,7 +24,7 @@ https://intune.netlify.app/
 
 - The user can log in through their Spotify account.
 - They can pick any song from Spotify.
-- The user's song choice are used to randomly create a playlist.
+- The user's song choice is used to create a playlist.
 
 # Installation 
 
