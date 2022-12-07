@@ -12,6 +12,7 @@ const Songcards = ({
   setArtistIds,
   currentUserId,
   setPlaylistId,
+  resetStates,
 }) => {
   const makePlaylist = () => {
     if (currentUserId) {
@@ -37,6 +38,7 @@ const Songcards = ({
     setSelectedSongId(id);
     setArtistIds(artists.map((artist) => artist.id));
     makePlaylist();
+    setTimeout(() => resetStates(), 3000);
   };
 
   return (

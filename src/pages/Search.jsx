@@ -180,6 +180,7 @@ const Search = () => {
                   setArtistIds={setArtistIds}
                   currentUserId={currentUserId}
                   setPlaylistId={setPlaylistId}
+                  resetStates={resetStates}
                 />
               </div>
             ))
