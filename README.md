@@ -6,6 +6,8 @@ intune takes a song from the user and creates a playlist of similar songs for yo
 
 # Demo
 
+Flick me an email so I can add you to a whitelist to try it out, since Spotify limits users to only 25 specified users for this API now :(
+
 https://intune.netlify.app/
 
 # Technologies
